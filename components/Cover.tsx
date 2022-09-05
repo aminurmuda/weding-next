@@ -1,6 +1,6 @@
 import Link from "next/link";
 interface CoverProps {
-  name?: string;
+  name?: string | string[] | undefined;
 }
 function Cover(props: CoverProps) {
   const { name } = props;

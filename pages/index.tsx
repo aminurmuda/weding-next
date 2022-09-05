@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 
 const Home: NextPage = () => {
   const router = useRouter();
-  const name = router.query.name ? "router.query.name" : "";
+  const name = router.query.name;
 
   return (
     <div>
