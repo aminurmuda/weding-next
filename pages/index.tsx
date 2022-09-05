@@ -2,7 +2,12 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Cover from "../components/Cover";
 
+import { useRouter } from "next/router";
+
 const Home: NextPage = () => {
+  const router = useRouter();
+  const name = router.query.name ? "router.query.name" : "";
+
   return (
     <div>
       <Head>
@@ -16,7 +21,7 @@ const Home: NextPage = () => {
 
       <main className="App">
         <div className="cover bg-soft-lilac">
-          <Cover />
+          <Cover name={name} />
         </div>
       </main>
     </div>

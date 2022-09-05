@@ -1,11 +1,26 @@
 import Icon from "@mdi/react";
-
-function Navbar({ menus, currentPage, setCurrentPage }) {
-  const isActive = (page) => {
+interface Menu {
+  label: string;
+  value: string;
+  icon: any;
+  content: any;
+}
+interface NavbarProps {
+  menus: Menu[];
+  currentPage: string;
+  setCurrentPage(value: string): void;
+}
+interface NavbarItemProps {
+  navbarItem: Menu;
+}
+function Navbar(props: NavbarProps) {
+  const { menus, currentPage, setCurrentPage } = props;
+  const isActive = (page: string) => {
     return page === currentPage;
   };
 
-  const NavbarItem = ({ navbarItem }) => {
+  const NavbarItem = (props: NavbarItemProps) => {
+    const { navbarItem } = props;
     return (
       <div
         className={`navbar-item ${
@@ -27,13 +42,15 @@ function Navbar({ menus, currentPage, setCurrentPage }) {
     );
   };
 
-  const goToPage = (index) => {
+  const goToPage = (index: string) => {
     setCurrentPage(index);
     const currentPage = document.querySelector(`#page-${index}`);
-    currentPage.scrollIntoView({
-      behavior: "smooth",
-    });
-    currentPage.scrollTop = 0;
+    if (currentPage) {
+      currentPage.scrollIntoView({
+        behavior: "smooth",
+      });
+      currentPage.scrollTop = 0;
+    }
   };
 
   return (
