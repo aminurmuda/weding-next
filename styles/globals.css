@@ -73,7 +73,7 @@
   .floating-fullscreen-toggle {
     position: fixed;
     right: calc(50vw - 240px + 0.5em);
-    bottom: calc(64px + 7em)
+    bottom: calc(64px + 2em)
   }
 
   .floating-audio-toggle {
@@ -109,7 +109,7 @@
   .floating-fullscreen-toggle {
     position: fixed;
     right: 1em;
-    bottom: calc(64px + 7em)
+    bottom: calc(64px + 2em)
   }
 
   .floating-audio-toggle {
@@ -169,7 +169,7 @@ scrollbar-width: none;  /* Firefox */
 }
 .navbar-item {
   background-color: rgb(239, 229, 243);
-  min-width: 96px;
+  min-width: 80px;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -204,12 +204,13 @@ scrollbar-width: none;  /* Firefox */
 
 .maps {
   border: none;
-  width: 280px;
+  width: 320px;
   height: 280px;
+  border-radius: 1rem;
 }
 
 .action-button {
-  border-radius: 4px;
+  border-radius: 8px;
   background: linear-gradient(135deg, #210236 0%, #210236 30%, #875070 100%);
   color: white;
   font-family: 'PT Serif', serif;
@@ -222,6 +223,7 @@ scrollbar-width: none;  /* Firefox */
 .page {
   padding-top: 2rem;
   max-width: 320px;
+  width: 100%;
   min-height: 100vh
 }
 
@@ -244,6 +246,10 @@ scrollbar-width: none;  /* Firefox */
 
 .space-around {
   justify-content: space-around;
+}
+
+.space-between {
+  justify-content: space-between;
 }
 
 .reverse {
@@ -331,8 +337,6 @@ body {
   padding: 20px;
   text-align: center;
 }
-
-
 
 .m-0 {
   margin: 0rem;
@@ -588,6 +592,7 @@ body {
 
 .scale-up {
   animation: scaleUp 1s;
+  animation-timing-function: ease-in-out;
   -webkit-animation: scaleUp 1s;
   -moz-animation: scaleUp 1s;
   -o-animation: scaleUp 1s;
@@ -598,9 +603,6 @@ body {
   0% { 
     transform: scale(0.5);
     opacity: 0;
-  }
-  50% {
-    transform: scale(1.05);
   }
   100% { 
     transform: scale(1);
@@ -613,9 +615,6 @@ body {
     transform: scale(0.5);
     opacity: 0;
   }
-  50% {
-    transform: scale(1.05);
-  }
   100% { 
     transform: scale(1);
     opacity: 1;
@@ -626,9 +625,6 @@ body {
   0% { 
     transform: scale(0.5);
     opacity: 0;
-  }
-  50% {
-    transform: scale(1.05);
   }
   100% { 
     transform: scale(1);
@@ -641,9 +637,6 @@ body {
     transform: scale(0.5);
     opacity: 0;
   }
-  50% {
-    transform: scale(1.05);
-  }
   100% { 
     transform: scale(1);
     opacity: 1;
@@ -654,9 +647,6 @@ body {
   0% { 
     transform: scale(0.5);
     opacity: 0;
-  }
-  50% {
-    transform: scale(1.05);
   }
   100% { 
     transform: scale(1);
@@ -841,4 +831,44 @@ body {
 {
   transform: scale( .25 );
 }
+}
+
+.wishes-container {
+  padding: 1rem 0;
+}
+
+.wish {
+  text-align: left;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: white;
+  border-radius: 1rem;
+}
+
+form {
+  width: 100%;
+  text-align: left;
+}
+
+.input {
+  padding: 1rem;
+  border: none;
+  width: calc(100% - 2rem);
+  margin-top: 0.5rem;
+  border-radius: 8px;
+  font-family: 'PT Serif', serif;
+}
+
+.submit-button {
+  border: none;
+  background: linear-gradient(135deg, #210236 0%, #210236 30%, #875070 100%);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.field {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }

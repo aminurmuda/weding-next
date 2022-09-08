@@ -1,0 +1,152 @@
+import { useState, useEffect, FormEvent } from "react";
+
+interface Wish {
+  name: string;
+  message: string;
+  timestamp: string;
+}
+function Greetings() {
+  const [sheetData, setSheetData] = useState<Wish[]>([]);
+  const [isLoading, setLoading] = useState(true);
+  const [name, setName] = useState("");
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    setLoading(true);
+    const response = await fetch("/api/get-wishes", {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    });
+
+    const content = await response.json();
+    setSheetData(content.data);
+    setLoading(false);
+  };
+
+  const handleSubmit = async (event: any) => {
+    // Stop the form from submitting and refreshing the page.
+    event.preventDefault();
+
+    // Get data from the form.
+    const form = {
+      name: event.target.name.value,
+      message: event.target.message.value,
+      rsvp: event.target.rsvp.value,
+    };
+
+    const response = await fetch("/api/submit", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+    });
+
+    const content = await response.json();
+    await fetchData();
+    setName("");
+    setMessage("");
+  };
+
+  const WishesForm = () => {
+    return (
+      <div className="mb-1">
+        <form onSubmit={handleSubmit}>
+          <div className="field">
+            <label htmlFor="name">Nama:</label>
+            <br />
+            <input
+              // onChange={(e) => setName(e.target.value)}
+              // value={name}
+              className="input slide-down"
+              type="text"
+              id="name"
+              name="name"
+              required
+              placeholder="Nama anda"
+            />
+          </div>
+          <div className="field">
+            <label htmlFor="message">Ucapan:</label>
+            <br />
+            <textarea
+              // onChange={(e) => setMessage(e.target.value)}
+              id="message"
+              className="input slide-down"
+              name="message"
+              required
+              rows={4}
+              placeholder="Tulis ucapan dan doa terbaik anda"
+            >
+              {/* {message} */}
+            </textarea>
+          </div>
+          <div className="field">
+            <input type="radio" id="hadir" name="rsvp" value="hadir" required />
+            <label htmlFor="hadir">Hadir</label>
+            <input
+              type="radio"
+              id="tidak"
+              name="rsvp"
+              value="tidak hadir"
+              required
+            />
+            <label htmlFor="tidak">Tidak Hadir</label>
+          </div>
+          <div className="mt-2 scale-up">
+            <button type="submit" className="center action-button fullwidth">
+              Kirim Ucapan
+            </button>
+          </div>
+        </form>
+      </div>
+    );
+  };
+
+  interface WishItemProps {
+    data: Wish;
+  }
+  const WishItem = (props: any) => {
+    const { data } = props;
+    return (
+      <div className="wish">
+        <div className="flex space-between mb-2">
+          <p className="bold">{data[0]}</p>
+          <p>{data[2]}</p>
+        </div>
+        <p>{data[1]}</p>
+      </div>
+    );
+  };
+
+  return (
+    <div>
+      <p className="font-1 mb-1 scale-up">Ucapan & Doa</p>
+      <WishesForm />
+      <hr className="mt-2 mb-2" />
+      {isLoading && <p>Loading...</p>}
+      {sheetData && !isLoading && (
+        <div className="wishes-container">
+          {sheetData.map((item: Wish, index: number) => {
+            return (
+              <div key={index}>
+                <WishItem data={item} />
+              </div>
+            );
+          })}
+        </div>
+      )}
+      {!sheetData && <p>Belum ada data</p>}
+    </div>
+  );
+}
+
+export default Greetings;

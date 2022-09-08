@@ -37,7 +37,9 @@ function Event() {
         dapat berkumpul bersama kaum mukminin di syurga kelak. Aamiin.
       </p>
       <hr className="mt-2 mb-2 scale-up" />
-      <p className="font-1 scale-up m-1">Hitung Mundur Acara</p>
+      <p className="font-1 font-size-2 scale-up mt-1 mb-1">
+        Hitung Mundur Acara
+      </p>
       <CountdownComponent targetDate={targetDate} />
       <div className="mt-2 scale-up">
         <a
