@@ -17,7 +17,7 @@ function Event() {
 
   return (
     <div>
-      <p className="mt-2 mb-1 slide-up">
+      <p className="mb-1 slide-up">
         Yang insyaa Allah akan diselenggarakan pada:
       </p>
       <div className="mt-1">

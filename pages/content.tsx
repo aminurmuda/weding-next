@@ -9,7 +9,7 @@ import {
   mdiCalendarOutline,
   mdiTextBoxOutline,
   mdiLogoutVariant,
-  mdiHumanGreeting,
+  mdiHandsPray,
 } from "@mdi/js";
 import Opening from "../components/Opening";
 import Pengantin from "../components/Pengantin";
@@ -17,13 +17,13 @@ import Event from "../components/Event";
 import Location from "../components/Location";
 import Adab from "../components/Adab";
 import Closing from "../components/Closing";
-import Fullscreen from "../components/Fullscreen";
+// import Fullscreen from "../components/Fullscreen";
 import Page from "../components/Page";
 import Greetings from "../components/Greetings";
 
 const Home: NextPage = () => {
   const [currentPage, setCurrentPage] = useState("home");
-  const [isFullscreen, setIsFullscreen] = useState(false);
+  // const [isFullscreen, setIsFullscreen] = useState(false);
   const pages = [
     {
       label: "Home",
@@ -64,7 +64,7 @@ const Home: NextPage = () => {
     {
       label: "Ucapan",
       value: "greetings",
-      icon: mdiHumanGreeting,
+      icon: mdiHandsPray,
       content: <Greetings />,
     },
   ];
@@ -78,10 +78,7 @@ const Home: NextPage = () => {
           content="E-Invitation for Nita & Amin Wedding"
         />
 
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="noindex,nofollow" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -106,10 +103,10 @@ const Home: NextPage = () => {
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
           />
-          <Fullscreen
+          {/* <Fullscreen
             isFullscreen={isFullscreen}
             setIsFullscreen={setIsFullscreen}
-          />
+          /> */}
         </div>
       </main>
     </div>

@@ -22,26 +22,26 @@ function Adab() {
     {
       id: 2,
       isActive: true,
-      message: "Gunakan Pakaian yang Sopan & Menutup Aurat",
+      message: "Menggunakan pakaian yang sopan & menutup aurat",
       icon: mdiHanger,
     },
     {
       id: 3,
       isActive: true,
-      message: "Mendoakan Pengantin",
+      message: "Mendoakan pengantin",
       icon: mdiHandsPray,
     },
     {
       id: 4,
       isActive: true,
-      message: "Tidak menyisakan makanan yang sudah diambil",
-      icon: mdiSilverwareForkKnife,
+      message: "Memperhatikan waktu sholat",
+      icon: mdiMosqueOutline,
     },
     {
       id: 5,
       isActive: true,
-      message: "Memperhatikan waktu sholat (ada masjid di dekat gedung)",
-      icon: mdiMosqueOutline,
+      message: "Menghabiskan makanan yang sudah diambil",
+      icon: mdiSilverwareForkKnife,
     },
     {
       id: 6,
@@ -49,27 +49,41 @@ function Adab() {
       message: "Tidak mengambil foto/video mempelai tanpa izin",
       icon: mdiCameraOffOutline,
     },
-    { id: 7, isActive: true, message: "Dilarang merokok", icon: mdiSmokingOff },
+    {
+      id: 7,
+      isActive: true,
+      message: "Tidak merokok di area acara",
+      icon: mdiSmokingOff,
+    },
   ];
 
   return (
     <div>
       <div>
-        <p className="font-1 mb-1 slide-up">Adab Walimah</p>
+        <p className="font-1 mb-1 scale-up">Adab Walimah</p>
       </div>
-      <div className="grid-container">
+      <div className="mt-2">
         {list.map((item) => {
           return (
-            <div key={item.id} className="grid-item">
+            <div key={item.id} className="mb-2">
               {item.iconAlt ? (
-                <div className="scale-up">
-                  <Icon size={2} path={item.icon} className="mr-0-5" />
-                  <Icon size={2} path={item.iconAlt} className="mr-0-5" />
+                <div className="center">
+                  <div className="scale-up flex" style={{ width: "128px" }}>
+                    <Icon size={2} path={item.icon} />
+                    <hr
+                      style={{
+                        width: "48px",
+                        rotate: "90deg",
+                        height: "3px",
+                      }}
+                    />
+                    <Icon size={2} path={item.iconAlt} />
+                  </div>
                 </div>
               ) : (
                 <Icon size={2} path={item.icon} className="mr-0-5 scale-up" />
               )}
-              <p className="slide-down">{item.message}</p>
+              <p className="fade-in mt-1">{item.message}</p>
             </div>
           );
         })}

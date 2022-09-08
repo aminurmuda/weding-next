@@ -8,8 +8,6 @@ interface Wish {
 function Greetings() {
   const [sheetData, setSheetData] = useState<Wish[]>([]);
   const [isLoading, setLoading] = useState(true);
-  const [name, setName] = useState("");
-  const [message, setMessage] = useState("");
 
   useEffect(() => {
     fetchData();
@@ -52,8 +50,6 @@ function Greetings() {
 
     const content = await response.json();
     await fetchData();
-    setName("");
-    setMessage("");
   };
 
   const WishesForm = () => {
@@ -64,8 +60,6 @@ function Greetings() {
             <label htmlFor="name">Nama:</label>
             <br />
             <input
-              // onChange={(e) => setName(e.target.value)}
-              // value={name}
               className="input slide-down"
               type="text"
               id="name"
@@ -78,18 +72,15 @@ function Greetings() {
             <label htmlFor="message">Ucapan:</label>
             <br />
             <textarea
-              // onChange={(e) => setMessage(e.target.value)}
               id="message"
               className="input slide-down"
               name="message"
               required
               rows={4}
               placeholder="Tulis ucapan dan doa terbaik anda"
-            >
-              {/* {message} */}
-            </textarea>
+            ></textarea>
           </div>
-          <div className="field">
+          <div className="field slide-down">
             <input type="radio" id="hadir" name="rsvp" value="hadir" required />
             <label htmlFor="hadir">Hadir</label>
             <input
@@ -117,7 +108,7 @@ function Greetings() {
   const WishItem = (props: any) => {
     const { data } = props;
     return (
-      <div className="wish">
+      <div className="wish fade-in">
         <div className="flex space-between mb-2">
           <p className="bold">{data[0]}</p>
           <p>{data[2]}</p>
@@ -131,7 +122,7 @@ function Greetings() {
     <div>
       <p className="font-1 mb-1 scale-up">Ucapan & Doa</p>
       <WishesForm />
-      <hr className="mt-2 mb-2" />
+      <hr className="mt-2 mb-2 scale-up" />
       {isLoading && <p>Loading...</p>}
       {sheetData && !isLoading && (
         <div className="wishes-container">
