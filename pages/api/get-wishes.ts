@@ -42,7 +42,7 @@ export default async function handler(
         const filteredResponse = response.data.values?.filter(item => {return parseInt(item[3])})
 
         return res.status(200).json({
-            data: filteredResponse
+            data: filteredResponse?.reverse()
         })
     } catch (e: any) {
         return res.status(500).send({ message: e.message ?? 'Something went wrong' })

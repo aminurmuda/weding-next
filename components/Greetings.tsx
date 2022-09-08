@@ -1,4 +1,5 @@
 import { useState, useEffect, FormEvent } from "react";
+import { useTime } from "../utils/useCountdown";
 
 interface Wish {
   name: string;
@@ -108,11 +109,13 @@ function Greetings() {
   }
   const WishItem = (props: any) => {
     const { data } = props;
+    const targetDate = new Date(data[2]).getTime();
+    const timestamp = useTime(targetDate);
     return (
       <div className="wish fade-in">
         <div className="flex space-between mb-2">
           <p className="bold">{data[0]}</p>
-          <p>{data[2]}</p>
+          <p className="timestamp">{timestamp}</p>
         </div>
         <p>{data[1]}</p>
       </div>

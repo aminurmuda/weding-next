@@ -37,7 +37,7 @@ export default async function handler(
          })
 
           // 👇️ 2021-10-24 16:21:23 (yyyy-mm-dd hh:mm:ss)
-          const currentTimestamp = formatDate(new Date());
+          const currentTimestamp = new Date().toLocaleString()
           
         console.log('payload',[body.name, body.message, currentTimestamp, 1])
          const response = await sheets.spreadsheets.values.append({

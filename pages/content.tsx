@@ -38,7 +38,7 @@ const Home: NextPage = () => {
       content: <Pengantin />,
     },
     {
-      label: "Acara",
+      label: "Waktu",
       value: "acara",
       icon: mdiCalendarOutline,
       content: <Event />,
