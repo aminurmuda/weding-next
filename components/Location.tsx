@@ -12,7 +12,7 @@ function Location() {
         ></iframe>
       </div>
       <p className="mt-1 font-size-1 bold mb-1 slide-down">Graha Sofia</p>
-      <p className="slide-down">
+      <p className="fade-in">
         Jl. Otto Iskandardinata, Karanganyar, Kec. Subang, Kabupaten Subang,
         Jawa Barat 41215
       </p>

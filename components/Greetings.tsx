@@ -84,6 +84,7 @@ function Greetings() {
             <input type="radio" id="hadir" name="rsvp" value="hadir" required />
             <label htmlFor="hadir">Hadir</label>
             <input
+              className="ml-1"
               type="radio"
               id="tidak"
               name="rsvp"
