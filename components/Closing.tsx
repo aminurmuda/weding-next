@@ -20,7 +20,7 @@ function Closing() {
       <h2 className="m-2 slide-down">
         بَارَكَ اللهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ
       </h2>
-      <p className="fade-in">
+      <p className="italic fade-in">
         Semoga Allah memberkahimu di waktu bahagia dan memberkahimu di waktu
         susah, serta semoga Allah mempersatukan kalian berdua dalam kebaikan
       </p>

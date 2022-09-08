@@ -18,7 +18,7 @@ function Opening() {
         إِذَا تَزَوَّجَ العَبْدُ فَقَدْ كَمَّلَ نَصْفَ الدِّيْنِ ، فَلْيَتَّقِ
         اللهَ فِي النِّصْفِ البَاقِي
       </p>
-      <p className="mt-1 fade-in">
+      <p className="mt-1 italic fade-in">
         Jika seseorang menikah, maka ia telah menyempurnakan separuh agamanya.
         Karenanya, bertakwalah pada Allah pada separuh yang lainnya.”
       </p>
