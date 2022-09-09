@@ -1,7 +1,9 @@
-import { useState } from "react";
-import type { NextPage } from "next";
+import { useEffect, useState } from "react";
 import Head from "next/head";
+import dynamic from "next/dynamic";
+import type { NextPage } from "next";
 import Navbar from "../components/Navbar";
+import Layout from "../components/Page";
 import {
   mdiHomeVariantOutline,
   mdiMapMarkerOutline,
@@ -11,19 +13,31 @@ import {
   mdiLogoutVariant,
   mdiHandsPray,
 } from "@mdi/js";
-import Opening from "../components/Opening";
-import Pengantin from "../components/Pengantin";
-import Event from "../components/Event";
-import Location from "../components/Location";
-import Adab from "../components/Adab";
-import Closing from "../components/Closing";
-// import Fullscreen from "../components/Fullscreen";
-import Page from "../components/Page";
-import Greetings from "../components/Greetings";
+
+const Opening = dynamic(() => import("../components/Opening"), {
+  ssr: true,
+});
+const Pengantin = dynamic(() => import("../components/Pengantin"), {
+  ssr: true,
+});
+const Event = dynamic(() => import("../components/Event"), {
+  ssr: true,
+});
+const Location = dynamic(() => import("../components/Location"), {
+  ssr: true,
+});
+const Adab = dynamic(() => import("../components/Adab"), {
+  ssr: true,
+});
+const Closing = dynamic(() => import("../components/Closing"), {
+  ssr: true,
+});
+const Greetings = dynamic(() => import("../components/Greetings"), {
+  ssr: true,
+});
 
 const Home: NextPage = () => {
   const [currentPage, setCurrentPage] = useState("home");
-  // const [isFullscreen, setIsFullscreen] = useState(false);
   const pages = [
     {
       label: "Home",
@@ -69,6 +83,20 @@ const Home: NextPage = () => {
     },
   ];
 
+  const [page, setPage] = useState(pages[0]);
+
+  const handleSetCurrentPage = (value: string) => {
+    setCurrentPage(value);
+    // const getPage = pages.find((item) => item.value === currentPage);
+    // getPage && setPage(getPage);
+  };
+
+  useEffect(() => {
+    const getPage = pages.find((item) => item.value === currentPage);
+    getPage && setPage(getPage);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentPage]);
+
   return (
     <div>
       <Head>
@@ -77,7 +105,6 @@ const Home: NextPage = () => {
           name="description"
           content="E-Invitation for Nita & Amin Wedding"
         />
-
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="noindex,nofollow" />
         <link rel="icon" href="/favicon.ico" />
@@ -86,27 +113,13 @@ const Home: NextPage = () => {
       <main className="App">
         <div>
           <div className="container">
-            {pages.map((page, index) => {
-              return (
-                <Page
-                  currentPage={currentPage}
-                  page={page}
-                  index={index}
-                  key={`page-${page.value}`}
-                  content={page.content}
-                ></Page>
-              );
-            })}
+            <Layout page={page}>{page.content}</Layout>
           </div>
           <Navbar
             menus={pages}
             currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
+            setCurrentPage={handleSetCurrentPage}
           />
-          {/* <Fullscreen
-            isFullscreen={isFullscreen}
-            setIsFullscreen={setIsFullscreen}
-          /> */}
         </div>
       </main>
     </div>
