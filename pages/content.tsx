@@ -32,7 +32,7 @@ const Adab = dynamic(() => import("../components/Adab"), {
 const Closing = dynamic(() => import("../components/Closing"), {
   ssr: true,
 });
-const Greetings = dynamic(() => import("../components/Greetings"), {
+const Wishes = dynamic(() => import("../components/Wishes"), {
   ssr: true,
 });
 
@@ -79,7 +79,7 @@ const Home: NextPage = () => {
       label: "Ucapan",
       value: "greetings",
       icon: mdiHandsPray,
-      content: <Greetings />,
+      content: <Wishes />,
     },
   ];
 
