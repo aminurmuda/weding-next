@@ -87,8 +87,6 @@ const Home: NextPage = () => {
 
   const handleSetCurrentPage = (value: string) => {
     setCurrentPage(value);
-    // const getPage = pages.find((item) => item.value === currentPage);
-    // getPage && setPage(getPage);
   };
 
   useEffect(() => {
