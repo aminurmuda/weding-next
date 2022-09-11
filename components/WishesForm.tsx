@@ -1,31 +1,39 @@
+import { useState } from "react";
+import Loading from "./Loading";
+
 interface WishesFormProps {
   onSubmit(): void;
 }
 
 function WishesForm({ onSubmit }: WishesFormProps) {
+  const [isLoading, setLoading] = useState(false);
   const handleSubmit = async (event: any) => {
-    // Stop the form from submitting and refreshing the page.
-    event.preventDefault();
+    if (!isLoading) {
+      setLoading(true);
+      // Stop the form from submitting and refreshing the page.
+      event.preventDefault();
 
-    // Get data from the form.
-    const form = {
-      name: event.target.name.value,
-      message: event.target.message.value,
-      rsvp: event.target.rsvp.value,
-      currentTimestamp: new Date().toLocaleString(),
-    };
+      // Get data from the form.
+      const form = {
+        name: event.target.name.value,
+        message: event.target.message.value,
+        rsvp: event.target.rsvp.value,
+        currentTimestamp: new Date().toLocaleString(),
+      };
 
-    const response = await fetch("/api/submit", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(form),
-    });
+      const response = await fetch("/api/submit", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
 
-    const content = await response.json();
-    onSubmit();
+      const content = await response.json();
+      onSubmit();
+      setLoading(false);
+    }
   };
 
   return (
@@ -71,8 +79,18 @@ function WishesForm({ onSubmit }: WishesFormProps) {
           <label htmlFor="tidak">Tidak Hadir</label>
         </div>
         <div className="mt-2 scale-up">
-          <button type="submit" className="center action-button fullwidth">
-            Kirim Ucapan
+          <button
+            type="submit"
+            className="center action-button fullwidth"
+            disabled={isLoading}
+          >
+            {isLoading ? (
+              <span style={{ transform: "scale(0.6)" }}>
+                <Loading />
+              </span>
+            ) : (
+              "Kirim Ucapan"
+            )}
           </button>
         </div>
       </form>

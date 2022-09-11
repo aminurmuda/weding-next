@@ -216,9 +216,16 @@ scrollbar-width: none;  /* Firefox */
   font-family: 'PT Serif', serif;
   font-size: 1.2em;
   padding: 1rem 3rem;
+  max-height: 52px;
   text-decoration: none;
   border: none;
 }
+
+button:disabled,
+button[disabled]{
+  opacity: 0.5;
+}
+
 
 .page {
   padding-top: 2rem;

@@ -1,4 +1,4 @@
-import { useState, useEffect, FormEvent } from "react";
+import { useState, useEffect } from "react";
 import { useTime } from "../utils/useCountdown";
 import Loading from "./Loading";
 import WishesForm from "./WishesForm";
@@ -10,25 +10,28 @@ interface Wish {
 }
 function Wishes() {
   const [sheetData, setSheetData] = useState<Wish[]>([]);
-  const [isLoading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchData = async () => {
-    setLoading(true);
-    const response = await fetch("/api/get-wishes", {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    });
+    if (!isLoading) {
+      setLoading(true);
+      const response = await fetch("/api/get-wishes", {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      });
 
-    const content = await response.json();
-    setSheetData(content.data);
-    setLoading(false);
+      const content = await response.json();
+      setSheetData(content.data);
+      setLoading(false);
+    }
   };
 
   const WishItem = (props: any) => {
