@@ -88,6 +88,9 @@ const Home: NextPage = () => {
 
   const handleSetCurrentPage = (value: string) => {
     setCurrentPage(value);
+    if (value === "wishes") {
+      value = "penutup";
+    }
     const item = document.getElementById("navbar-item-" + value);
     if (item) {
       item.scrollIntoView({
