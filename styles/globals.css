@@ -221,6 +221,18 @@ scrollbar-width: none;  /* Firefox */
   border: none;
 }
 
+.action-button-sm {
+  margin: 0 1rem;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #210236 0%, #210236 30%, #875070 100%);
+  color: white;
+  font-family: 'PT Serif', serif;
+  font-size: 12px;
+  padding: 0.5rem 1.5rem;
+  text-decoration: none;
+  border: none;
+}
+
 button:disabled,
 button[disabled]{
   opacity: 0.5;
