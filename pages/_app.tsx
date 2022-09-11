@@ -28,17 +28,18 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Script
         async
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS_ID}`}
+        src="https://www.googletagmanager.com/gtag/js?id=UA-240813515-1"
         strategy="afterInteractive"
       />
       <Script id="google-analytics" strategy="afterInteractive">
         {`
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-  
-      gtag('config', '${process.env.GOOGLE_ANALYTICS_ID}');
-    `}
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'UA-240813515-1');
+        `}
       </Script>
       <Component {...pageProps} />
     </>
