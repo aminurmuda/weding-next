@@ -13,6 +13,7 @@ import {
   mdiLogoutVariant,
   mdiHandsPray,
 } from "@mdi/js";
+import SendMessage from "../components/SendMessage";
 
 const Opening = dynamic(() => import("../components/Opening"), {
   ssr: true,
@@ -70,16 +71,16 @@ const Home: NextPage = () => {
       content: <Adab />,
     },
     {
+      label: "Ucapan",
+      value: "wishes",
+      icon: mdiHandsPray,
+      content: <Wishes />,
+    },
+    {
       label: "Penutup",
       value: "penutup",
       icon: mdiLogoutVariant,
       content: <Closing />,
-    },
-    {
-      label: "Ucapan",
-      value: "greetings",
-      icon: mdiHandsPray,
-      content: <Wishes />,
     },
   ];
 
@@ -87,6 +88,14 @@ const Home: NextPage = () => {
 
   const handleSetCurrentPage = (value: string) => {
     setCurrentPage(value);
+    const item = document.getElementById("navbar-item-" + value);
+    if (item) {
+      item.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+        inline: "nearest",
+      });
+    }
   };
 
   useEffect(() => {
@@ -113,6 +122,10 @@ const Home: NextPage = () => {
           <div className="container">
             <Layout page={page}>{page.content}</Layout>
           </div>
+          <SendMessage
+            hide={currentPage === "wishes"}
+            goTo={handleSetCurrentPage}
+          />
           <Navbar
             menus={pages}
             currentPage={currentPage}

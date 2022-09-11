@@ -23,6 +23,7 @@ function Navbar(props: NavbarProps) {
     const { navbarItem } = props;
     return (
       <div
+        id={"navbar-item-" + navbarItem.value}
         className={`navbar-item ${
           isActive(navbarItem.value) ? "is-active" : ""
         }`}
