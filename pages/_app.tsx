@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     function ctrlShiftKey(e: any, keyCode: string) {
       return e.ctrlKey && e.shiftKey && e.keyCode === keyCode.charCodeAt(0);
     }
-    if (process.env.NODE_ENV === "production") {
+    if (process.env.APP_ENV === "production") {
       document.addEventListener("contextmenu", handelRightClick);
       document.onkeydown = (e: any) => {
         // Disable F12, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + U
