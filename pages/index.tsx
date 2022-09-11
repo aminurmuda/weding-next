@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 
 const Home: NextPage = () => {
   const router = useRouter();
-  const name = router.query.name;
+  const recipient = router.query.to;
 
   return (
     <div>
@@ -24,7 +24,7 @@ const Home: NextPage = () => {
 
       <main className="App">
         <div className="cover bg-soft-lilac">
-          <Cover name={name} />
+          <Cover name={recipient} />
         </div>
       </main>
     </div>
