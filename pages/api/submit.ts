@@ -5,6 +5,7 @@ type SheetForm = {
     name: string
     message: string
     rsvp: string
+    currentTimestamp: string;
 }
 
 export default async function handler(
@@ -36,17 +37,14 @@ export default async function handler(
             version: 'v4'
          })
 
-          // 👇️ 2021-10-24 16:21:23 (yyyy-mm-dd hh:mm:ss)
-          const currentTimestamp = new Date().toLocaleString()
-          
-        console.log('payload',[body.name, body.message, currentTimestamp, 1])
+        console.log('payload',[body.name, body.message, body.currentTimestamp, 1])
          const response = await sheets.spreadsheets.values.append({
             spreadsheetId: process.env.SPREADSHEET_ID,
             range: 'wishes!A1:E1',
             valueInputOption: 'USER_ENTERED',
             requestBody: {
                 values: [
-                    [body.name, body.message, currentTimestamp, 1, body.rsvp]
+                    [body.name, body.message, body.currentTimestamp, 1, body.rsvp]
                 ]
             }
          })

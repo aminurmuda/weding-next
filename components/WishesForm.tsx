@@ -12,6 +12,7 @@ function WishesForm({ onSubmit }: WishesFormProps) {
       name: event.target.name.value,
       message: event.target.message.value,
       rsvp: event.target.rsvp.value,
+      currentTimestamp: new Date().toLocaleString(),
     };
 
     const response = await fetch("/api/submit", {
