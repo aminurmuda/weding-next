@@ -6,7 +6,7 @@ const nextConfig = {
     locales: ["en"],
     defaultLocale: "en",
   },
-
+  secret: process.env.NEXTAUTH_SECRET
 }
 
 module.exports = nextConfig

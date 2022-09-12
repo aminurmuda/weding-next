@@ -2,6 +2,7 @@ import Icon from "@mdi/react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Loading from "./Loading";
+import Logout from "./Logout";
 import { mdiWhatsapp } from "@mdi/js";
 
 interface Recipient {
@@ -116,6 +117,7 @@ Nita & Amin`;
     <div>
       <p className="font-1 mb-1 scale-up">Forward Undangan</p>
       <p>Untuk memudahkan dalam mengirim link undangan via Whatsapp</p>
+      <Logout />
       <hr className="mt-2 mb-2 scale-up" />
       {isLoading && <Loading />}
       {sheetData && !isLoading && (

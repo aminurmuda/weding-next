@@ -3,8 +3,9 @@ import Script from "next/script";
 import "../styles/globals.css";
 import { handelRightClick } from "../utils/AppUtility";
 import type { AppProps } from "next/app";
+import { SessionProvider } from "next-auth/react";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   useEffect(() => {
     function ctrlShiftKey(e: any, keyCode: string) {
       return e.ctrlKey && e.shiftKey && e.keyCode === keyCode.charCodeAt(0);
@@ -40,7 +41,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           gtag('config', 'UA-240813515-1');
         `}
       </Script>
-      <Component {...pageProps} />
+      <SessionProvider session={session}>
+        <Component {...pageProps} />
+      </SessionProvider>
     </>
   );
 }

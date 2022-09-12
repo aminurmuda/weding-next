@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import { getSession } from "next-auth/react";
 import Head from "next/head";
 
 import { useRouter } from "next/router";
@@ -34,3 +35,17 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export async function getServerSideProps(context: any) {
+  const session = await getSession(context);
+  if (!session) {
+    context.res.writeHead(302, { Location: "/admin" });
+    context.res.end();
+    return {};
+  }
+  return {
+    props: {
+      user: session.user,
+    },
+  };
+}
