@@ -13,7 +13,7 @@ export default function Component() {
   }
   return (
     <div className="mt-2">
-      <button className="action-button" onClick={() => signIn()}>
+      <button className="action-button" onClick={() => signIn("google")}>
         Sign in
       </button>
     </div>
