@@ -42,12 +42,12 @@ function Forward() {
     link: string;
   }
   const buildMessage = ({ fullname, nickname, link }: RecipientData) => {
-    const text = `Assalamu'alaikum warahmatullahi wabarakatuh
+    const text = `_Assalamu'alaikum warahmatullahi wabarakatuh_
 
 Kepada Yth.
 ${fullname}
 
-Bagaimana kabarnya ${nickname}? semoga ${nickname} dan keluarga sehat selalu dan berada di bawah lindungan Allah 'Azza wa Jalla. Melalui pesan singkat ini, kami ingin mengundang ${nickname} untuk menghadiri acara walimah pernikahan kami,
+Bagaimana kabarnya ${nickname}? Semoga ${nickname} dan keluarga sehat selalu dan berada di bawah lindungan Allah 'Azza wa Jalla. Melalui pesan singkat ini, kami ingin mengundang ${nickname} untuk menghadiri acara walimah pernikahan kami,
 
 *Anita Mediana (Nita)*
 Putri Dari Bapak Diman Kadiman dan Ibu Yasinah
@@ -55,7 +55,7 @@ Putri Dari Bapak Diman Kadiman dan Ibu Yasinah
 *Aminur Muda Nasution (Amin)*
 Putra dari Bapak Aris Muda Nasution dan Ibu Jean Leila Hanoum
 
-Yang _insyaa Allah_ akan berlangsung pada:
+Yang insyaa Allah akan berlangsung pada:
 🗓️ Sabtu, 22 Oktober 2022
 🕙 10.00-14.00 WIB (Akad & Resepsi)
 🏠 Graha Sofia, Kab. Subang
@@ -63,10 +63,10 @@ Yang _insyaa Allah_ akan berlangsung pada:
 Informasi detail mengenai acara dan kehadiran bisa diakses melalui link berikut:
 ${link}
 
-Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila ${nickname} berkenan untuk hadir dan juga memberikan doa restunya agar prosesi ini bisa berjalan dengan baik
+Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila ${nickname} berkenan untuk hadir dan juga memberikan doa restunya agar prosesi pernikahan kami bisa berjalan dengan baik.
 
-Barakallahu fiikum
-Wassalamu'alaikum warahmatullahi wabarakatuh
+_Barakallahu fiikum_
+_Wassalamu'alaikum warahmatullahi wabarakatuh_
 
 Nita & Amin`;
     return text;
