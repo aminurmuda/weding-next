@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useTime } from "../utils/useCountdown";
 import Loading from "./Loading";
 import WishesForm from "./WishesForm";
+import Image from "next/image";
 
 interface Wish {
   name: string;
@@ -53,7 +54,13 @@ function Wishes() {
     <div>
       <p className="font-1 mb-1 scale-up">Ucapan & Doa</p>
       <WishesForm onSubmit={fetchData} />
-      <hr className="mt-2 mb-2 scale-up" />
+      <Image
+        src="/images/divider.svg"
+        alt="divider"
+        className="scale-up"
+        width="300"
+        height="80"
+      />
       {isLoading && <Loading />}
       {sheetData && !isLoading && (
         <div className="wishes-container">

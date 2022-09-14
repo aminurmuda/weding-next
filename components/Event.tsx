@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import Image from "next/image";
 
 const CountdownComponent = dynamic(() => import("./Countdown"), {
   ssr: false,
@@ -35,7 +36,13 @@ function Event() {
         pernikahan. Semoga pernikahan ini bisa menjadi langkah awal kami untuk
         dapat berkumpul bersama kaum mukminin di syurga kelak. Aamiin.
       </p>
-      <hr className="mt-2 mb-2 scale-up" />
+      <Image
+        src="/images/divider.svg"
+        alt="divider"
+        className="scale-up"
+        width="300"
+        height="60"
+      />
       <p className="font-1 font-size-2 scale-up mt-1 mb-1">
         Hitung Mundur Acara
       </p>

@@ -42,7 +42,7 @@ const Home: NextPage = () => {
   const [currentPage, setCurrentPage] = useState("home");
   const pages = [
     {
-      label: "Home",
+      label: "Pembuka",
       value: "home",
       icon: mdiHomeVariantOutline,
       content: <Opening />,

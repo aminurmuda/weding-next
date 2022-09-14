@@ -1,3 +1,4 @@
+import Image from "next/image";
 function Closing() {
   return (
     <div>
@@ -15,7 +16,13 @@ function Closing() {
         Keluarga Bapak Diman & Ibu Yasinah
       </p>
       <p className="font-size-0-5 slide-up">Keluarga Bapak Aris & Ibu Jean </p>
-      <hr className="mt-2 mb-2 scale-up" />
+      <Image
+        src="/images/divider.svg"
+        alt="divider"
+        className="scale-up"
+        width="300"
+        height="80"
+      />
       <p className="font-1 scale-up">Doa Untuk Pengantin</p>
       <h2 className="m-2 slide-down">
         بَارَكَ اللهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ
