@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import type { NextPage } from "next";
 import Navbar from "../components/Navbar";
 import Layout from "../components/Page";
+import Heart from "../components/Heart";
 import {
   mdiHomeVariantOutline,
   mdiMapMarkerOutline,
@@ -121,19 +122,37 @@ const Home: NextPage = () => {
       </Head>
 
       <main className="App">
-        <div>
-          <div className="container">
-            <Layout page={page}>{page.content}</Layout>
+        <div className="parent background container">
+          <div className="children back">
+            <div className="firefly"></div>
+            <div className="firefly"></div>
+            <div className="firefly"></div>
+            <div className="firefly"></div>
+            <div className="firefly"></div>
+            <div className="firefly"></div>
+            <div className="firefly"></div>
+            <div className="firefly"></div>
+            <div className="firefly"></div>
+            <div className="firefly"></div>
+            <div className="firefly"></div>
+            <div className="firefly"></div>
+            <div className="firefly"></div>
+            <div className="firefly"></div>
+            <div className="firefly"></div>
+            <Heart />
           </div>
-          <SendMessage
-            hide={currentPage === "wishes"}
-            goTo={handleSetCurrentPage}
-          />
-          <Navbar
-            menus={pages}
-            currentPage={currentPage}
-            setCurrentPage={handleSetCurrentPage}
-          />
+          <div className="children front">
+            <Layout page={page}>{page.content}</Layout>
+            <SendMessage
+              hide={currentPage === "wishes"}
+              goTo={handleSetCurrentPage}
+            />
+            <Navbar
+              menus={pages}
+              currentPage={currentPage}
+              setCurrentPage={handleSetCurrentPage}
+            />
+          </div>
         </div>
       </main>
     </div>

@@ -1,0 +1,63 @@
+.scale-up {
+    animation: scaleUp 2s;
+    animation-timing-function: ease-in-out;
+    -webkit-animation: scaleUp 2s;
+    -moz-animation: scaleUp 2s;
+    -o-animation: scaleUp 2s;
+    -ms-animation: scaleUp 2s;
+  }
+  
+  @keyframes scaleUp {
+    0% { 
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    100% { 
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  @-moz-keyframes scaleUp {
+    0% { 
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    100% { 
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  @-webkit-keyframes scaleUp {
+    0% { 
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    100% { 
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  @-o-keyframes scaleUp {
+    0% { 
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    100% { 
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  @-ms-keyframes scaleUp {
+    0% { 
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    100% { 
+      transform: scale(1);
+      opacity: 1;
+    }
+  }

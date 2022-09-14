@@ -40,7 +40,7 @@ function Event() {
         Hitung Mundur Acara
       </p>
       <CountdownComponent targetDate={targetDate} />
-      <div className="mt-2 scale-up">
+      <div className="mt-2 scale-up px-1">
         <a
           className="action-button center"
           target="_blank"

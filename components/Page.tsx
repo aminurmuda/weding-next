@@ -5,7 +5,7 @@ interface PageProps {
 function Page(props: PageProps) {
   const { page, children } = props;
   return (
-    <div id={`page-${page.value}`} className="bg-soft-pink">
+    <div id={`page-${page.value}`}>
       <div className="center">
         <div className="page">{children}</div>
       </div>

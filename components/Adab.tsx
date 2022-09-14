@@ -8,6 +8,7 @@ import {
   mdiSilverwareForkKnife,
   mdiHanger,
   mdiCameraOffOutline,
+  mdiFaceMask,
 } from "@mdi/js";
 
 function Adab() {
@@ -22,35 +23,41 @@ function Adab() {
     {
       id: 2,
       isActive: true,
+      message: "Menggunakan masker dan tetap menjaga protokol kesehatan",
+      icon: mdiFaceMask,
+    },
+    {
+      id: 3,
+      isActive: true,
       message: "Menggunakan pakaian yang sopan & menutup aurat",
       icon: mdiHanger,
     },
     {
-      id: 3,
+      id: 4,
       isActive: true,
       message: "Mendoakan pengantin",
       icon: mdiHandsPray,
     },
     {
-      id: 4,
+      id: 5,
       isActive: true,
       message: "Memperhatikan waktu sholat",
       icon: mdiMosqueOutline,
     },
     {
-      id: 5,
+      id: 6,
       isActive: true,
       message: "Menghabiskan makanan yang sudah diambil",
       icon: mdiSilverwareForkKnife,
     },
     {
-      id: 6,
+      id: 7,
       isActive: true,
       message: "Tidak mengambil foto/video mempelai tanpa izin",
       icon: mdiCameraOffOutline,
     },
     {
-      id: 7,
+      id: 8,
       isActive: true,
       message: "Tidak merokok di area acara",
       icon: mdiSmokingOff,
