@@ -6,7 +6,7 @@ interface WishesFormProps {
 }
 
 function WishesForm({ onSubmit }: WishesFormProps) {
-  const recipient = localStorage.getItem("recipient");
+  const recipient = JSON.parse(localStorage.getItem("recipient") || "{}");
   const [isLoading, setLoading] = useState(false);
   const handleSubmit = async (event: any) => {
     if (!isLoading) {
@@ -37,7 +37,7 @@ function WishesForm({ onSubmit }: WishesFormProps) {
     }
   };
 
-  const findInputName = document.getElementById("name");
+  const findInputName = document.getElementById("name") as HTMLInputElement;
   if (findInputName) {
     findInputName.value = recipient;
   }
