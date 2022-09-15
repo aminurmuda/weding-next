@@ -24,14 +24,6 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
           return false;
       };
     }
-
-    let scrollTimeout: any;
-    addEventListener("scroll", function (e) {
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(function () {
-        console.log("Scroll ended");
-      }, 1000);
-    });
   });
   return (
     <>

@@ -19,6 +19,28 @@ function Forward() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const handleSubmit = async (data: any) => {
+    if (!isLoading) {
+      // Get data from the form.
+      const form = {
+        check: parseInt(data[0]) ? 0 : 1,
+        row: data[1],
+      };
+
+      const response = await fetch("/api/update", {
+        method: "PUT",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      const content = await response.json();
+      fetchData();
+    }
+  };
+
   const fetchData = async () => {
     if (!isLoading) {
       setLoading(true);
@@ -73,7 +95,7 @@ Nita & Amin`;
   };
 
   const RecipientItem = (props: any) => {
-    const { data } = props;
+    const { data, row } = props;
     const fullname = data[0];
     const nickname = data[1];
     const phone = data[2];
@@ -105,7 +127,13 @@ Nita & Amin`;
             </Link>
           </div>
           <div className="ml-1 mr-1">
-            <input type="checkbox" defaultChecked={!!parseInt(data[3])} />
+            <input
+              type="checkbox"
+              defaultChecked={!!parseInt(data[3])}
+              onClick={() => {
+                handleSubmit([data[3], row]);
+              }}
+            />
             <p>Sent</p>
           </div>
         </div>
@@ -125,7 +153,7 @@ Nita & Amin`;
           {sheetData.map((item: Recipient, index: number) => {
             return (
               <div key={index}>
-                <RecipientItem data={item} />
+                <RecipientItem data={item} row={index} />
               </div>
             );
           })}

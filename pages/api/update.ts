@@ -1,10 +1,9 @@
 import { google } from "googleapis";
 import { NextApiRequest, NextApiResponse } from "next";
+
 type SheetForm = {
-  name: string;
-  message: string;
-  rsvp: string;
-  currentTimestamp: string;
+  check: number;
+  row: number;
 };
 
 export default async function handler(
@@ -39,15 +38,12 @@ export default async function handler(
       version: "v4",
     });
 
-    console.log("payload", [body.name, body.message, body.currentTimestamp, 1]);
-    const response = await sheets.spreadsheets.values.append({
+    const response = await sheets.spreadsheets.values.update({
       spreadsheetId: process.env.SPREADSHEET_ID,
-      range: "recipients!E2:E",
+      range: `recipients!D${body.row + 2}:D`,
       valueInputOption: "USER_ENTERED",
       requestBody: {
-        values: [
-          [body.name, body.message, body.currentTimestamp, 1, body.rsvp],
-        ],
+        values: [[body.check]],
       },
     });
 
