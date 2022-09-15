@@ -3,22 +3,22 @@ interface DateTimeDisplayProps {
   value: number;
   type: string;
   isDanger: boolean;
+  shouldFlash: boolean;
 }
 const DateTimeDisplay = (props: DateTimeDisplayProps) => {
-  const { value, type, isDanger } = props;
-  const styleAdditional = isDanger ? "flash" : "";
+  const { value, type, isDanger, shouldFlash } = props;
+  const styles = [];
+  if (shouldFlash) {
+    styles.push("flash");
+  }
+  if (isDanger) {
+    styles.push("danger");
+  }
+  const styleAdditional = styles.join(" ");
   return (
     <div>
-      <p
-        className={`bold font-size-3 ${styleAdditional} ${
-          value === 0 && "danger"
-        }`}
-      >
-        {value}
-      </p>
-      <span className={`bold font-size-1 ${value === 0 && "danger"}`}>
-        {type}
-      </span>
+      <p className={`bold font-size-3 ${styleAdditional}`}>{value}</p>
+      <span className={`bold font-size-1 ${isDanger && "danger"}`}>{type}</span>
     </div>
   );
 };
