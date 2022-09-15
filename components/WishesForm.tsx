@@ -6,7 +6,7 @@ interface WishesFormProps {
 }
 
 function WishesForm({ onSubmit }: WishesFormProps) {
-  const recipient = JSON.parse(localStorage.getItem("recipient") || "{}");
+  const recipient = localStorage.getItem("recipient") || "";
   const [isLoading, setLoading] = useState(false);
   const handleSubmit = async (event: any) => {
     if (!isLoading) {
