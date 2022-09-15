@@ -9,8 +9,10 @@
   @keyframes slideUp {
     0% { 
       transform: translateY(2rem);
+      opacity: 0;
     }
     100% { 
+      opacity: 1;
       transform: translateY(0);
     }
   }
@@ -18,8 +20,10 @@
   @-moz-keyframes slideUp {
     0% { 
       transform: translateY(2rem);
+      opacity: 0;
     }
     100% { 
+      opacity: 1;
       transform: translateY(0);
     }
   }
@@ -27,8 +31,10 @@
   @-webkit-keyframes slideUp {
     0% { 
       transform: translateY(2rem);
+      opacity: 0;
     }
     100% { 
+      opacity: 1;
       transform: translateY(0);
     }
   }
@@ -36,8 +42,10 @@
   @-o-keyframes slideUp {
     0% { 
       transform: translateY(2rem);
+      opacity: 0;
     }
     100% { 
+      opacity: 1;
       transform: translateY(0);
     }
   }
@@ -45,8 +53,10 @@
   @-ms-keyframes slideUp {
     0% { 
       transform: translateY(2rem);
+      opacity: 0;
     }
     100% { 
+      opacity: 1;
       transform: translateY(0);
     }
   }

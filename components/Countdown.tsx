@@ -21,7 +21,7 @@ interface CounterProps {
 const ShowCounter = (props: CounterProps) => {
   const { days, hours, minutes, seconds, isDanger, shouldFlash } = props;
   return (
-    <div className="show-counter">
+    <div className="show-counter slide-down">
       <div className="center">
         <DateTimeDisplay
           value={days}
