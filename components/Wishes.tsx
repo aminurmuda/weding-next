@@ -61,19 +61,21 @@ function Wishes() {
         width="300"
         height="80"
       />
-      {isLoading && <Loading />}
-      {sheetData && !isLoading && (
-        <div className="wishes-container">
-          {sheetData.map((item: Wish, index: number) => {
-            return (
-              <div key={index}>
-                <WishItem data={item} />
-              </div>
-            );
-          })}
-        </div>
-      )}
-      {!sheetData && <p>Belum ada data</p>}
+      <div style={{ minHeight: "48px" }}>
+        {isLoading && <Loading />}
+        {sheetData && !isLoading && (
+          <div className="wishes-container">
+            {sheetData.map((item: Wish, index: number) => {
+              return (
+                <div key={index}>
+                  <WishItem data={item} />
+                </div>
+              );
+            })}
+          </div>
+        )}
+        {!sheetData && !isLoading && <p>Belum ada data</p>}
+      </div>
     </div>
   );
 }

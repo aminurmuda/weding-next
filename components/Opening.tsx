@@ -2,7 +2,7 @@ import Image from "next/image";
 function Opening() {
   return (
     <div>
-      <p className="mt-2 scale-up font-size-1 bold">
+      <p className="scale-up font-size-1 bold">
         وَمِنْ ءَايَٰتِهِۦٓ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَٰجًا
         لِّتَسْكُنُوٓا۟ إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ
         إِنَّ فِى ذَٰلِكَ لَءَايَٰتٍ لِّقَوْمٍ يَتَفَكَّرُونَ

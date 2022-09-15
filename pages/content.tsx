@@ -142,7 +142,9 @@ const Home: NextPage = () => {
             <Heart />
           </div>
           <div className="children front">
-            <Layout page={page}>{page.content}</Layout>
+            <div className="center fullheight">
+              <Layout page={page}>{page.content}</Layout>
+            </div>
             <SendMessage
               hide={currentPage === "wishes"}
               goTo={handleSetCurrentPage}
