@@ -7,6 +7,9 @@ import { useRouter } from "next/router";
 const Home: NextPage = () => {
   const router = useRouter();
   const recipient = router.query.to;
+  if (recipient) {
+    localStorage.setItem("recipient", recipient + "");
+  }
 
   return (
     <div>

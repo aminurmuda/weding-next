@@ -6,10 +6,19 @@ interface DateTimeDisplayProps {
 }
 const DateTimeDisplay = (props: DateTimeDisplayProps) => {
   const { value, type, isDanger } = props;
+  const styleAdditional = isDanger ? "flash" : "";
   return (
-    <div className={isDanger ? "countdown danger" : "countdown"}>
-      <p className="bold font-size-3">{value}</p>
-      <span className="bold font-size-1">{type}</span>
+    <div>
+      <p
+        className={`bold font-size-3 ${styleAdditional} ${
+          value === 0 && "danger"
+        }`}
+      >
+        {value}
+      </p>
+      <span className={`bold font-size-1 ${value === 0 && "danger"}`}>
+        {type}
+      </span>
     </div>
   );
 };

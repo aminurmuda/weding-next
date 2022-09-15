@@ -6,6 +6,7 @@ interface WishesFormProps {
 }
 
 function WishesForm({ onSubmit }: WishesFormProps) {
+  const recipient = localStorage.getItem("recipient");
   const [isLoading, setLoading] = useState(false);
   const handleSubmit = async (event: any) => {
     if (!isLoading) {
@@ -35,6 +36,11 @@ function WishesForm({ onSubmit }: WishesFormProps) {
       setLoading(false);
     }
   };
+
+  const findInputName = document.getElementById("name");
+  if (findInputName) {
+    findInputName.value = recipient;
+  }
 
   return (
     <div className="mb-1">

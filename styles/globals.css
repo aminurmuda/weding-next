@@ -6,6 +6,7 @@
 @import "./slide-up.css";
 @import "./heart.css";
 @import "./layout.css";
+@import "./flash.css";
 
 .App {
   text-align: center;
@@ -325,6 +326,9 @@ p {
 
 .dark-purple {
   color: #2B061E;
+}
+.danger {
+  color: #875070;
 }
 
 .white {
