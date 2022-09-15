@@ -31,32 +31,37 @@ function Event() {
         <p className="font-1 scale-up mt-1">Walimah</p>
         <p className="font-size-1 slide-up mt-1">Pukul 12.30 - 14.00 WIB</p>
       </div>
-      <p className="mt-2 mb-1 fade-in">
+      <p className="mt-2 mb-1 fade-in px-1">
         Maha Suci Allah ‘Azza wa Jalla yang menautkan dua hati dalam ikatan suci
         pernikahan. Semoga pernikahan ini bisa menjadi langkah awal kami untuk
         dapat berkumpul bersama kaum mukminin di syurga kelak. Aamiin.
       </p>
-      <Image
-        src="/images/divider.svg"
-        alt="divider"
-        className="scale-up"
-        width="600"
-        height="60"
-      />
-      <p className="font-1 font-size-2 scale-up mt-1 mb-1">
-        Hitung Mundur Acara
-      </p>
-      <CountdownComponent targetDate={targetDate} />
-      <div className="mt-2 scale-up px-1">
-        <a
-          className="action-button center"
-          target="_blank"
-          href={url}
-          rel="nofollow noreferrer"
-          role="button"
+      <div className="px-1">
+        <Image
+          src="/images/divider.svg"
+          alt="divider"
+          className="scale-up"
+          width="300"
+          height="60"
+        />
+        <p
+          className="font-1 font-size-2 scale-up mt-1 mb-2"
+          style={{ letterSpacing: "2.8px" }}
         >
-          Simpan ke Google Calendar
-        </a>
+          Hitung Mundur Acara
+        </p>
+        <CountdownComponent targetDate={targetDate} />
+        <div className="mt-3 scale-up">
+          <a
+            className="action-button center"
+            target="_blank"
+            href={url}
+            rel="nofollow noreferrer"
+            role="button"
+          >
+            Simpan ke Google Calendar
+          </a>
+        </div>
       </div>
     </div>
   );

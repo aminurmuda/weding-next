@@ -22,7 +22,7 @@ const ShowCounter = (props: CounterProps) => {
   const { days, hours, minutes, seconds, isDanger, shouldFlash } = props;
   return (
     <div className="show-counter slide-down">
-      <div className="center">
+      <div className="center space-between px-1">
         <DateTimeDisplay
           value={days}
           type={"Hari"}
