@@ -25,7 +25,7 @@ const Home: NextPage = () => {
 
       <main className="App">
         <div className="center bg-soft-lilac">
-          <div className="page">
+          <div className="page" style={{ minHeight: "100vh" }}>
             <Forward />
           </div>
         </div>

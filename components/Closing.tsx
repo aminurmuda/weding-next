@@ -21,7 +21,7 @@ function Closing() {
         alt="divider"
         className="scale-up"
         width="600"
-        height="80"
+        height="120"
       />
       <p className="font-1 scale-up">Doa Untuk Pengantin</p>
       <h2 className="m-2 slide-down">
