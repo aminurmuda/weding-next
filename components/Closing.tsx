@@ -20,7 +20,7 @@ function Closing() {
         src="/images/divider.svg"
         alt="divider"
         className="scale-up"
-        width="300"
+        width="600"
         height="80"
       />
       <p className="font-1 scale-up">Doa Untuk Pengantin</p>

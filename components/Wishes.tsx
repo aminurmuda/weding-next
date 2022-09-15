@@ -58,7 +58,7 @@ function Wishes() {
         src="/images/divider.svg"
         alt="divider"
         className="scale-up"
-        width="300"
+        width="600"
         height="80"
       />
       <div style={{ minHeight: "48px" }}>

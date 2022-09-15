@@ -20,7 +20,7 @@ function Opening() {
         src="/images/divider.svg"
         alt="divider"
         className="scale-up"
-        width="300"
+        width="600"
         height="40"
       />
       <p className="mt-3 scale-up font-size-1 bold">

@@ -40,7 +40,7 @@ function Event() {
         src="/images/divider.svg"
         alt="divider"
         className="scale-up"
-        width="300"
+        width="600"
         height="60"
       />
       <p className="font-1 font-size-2 scale-up mt-1 mb-1">
