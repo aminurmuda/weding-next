@@ -101,10 +101,12 @@ const Home: NextPage = () => {
 
   const handleSetCurrentPage = (value: string) => {
     setCurrentPage(value);
-    if (value === "wishes") {
-      value = "penutup";
+    changeQuery(value);
+    let goTo = value;
+    if (goTo === "wishes") {
+      goTo = "penutup";
     }
-    const item = document.getElementById("navbar-item-" + value);
+    const item = document.getElementById("navbar-item-" + goTo);
     if (item) {
       item.scrollIntoView({
         behavior: "smooth",
@@ -112,7 +114,6 @@ const Home: NextPage = () => {
         inline: "nearest",
       });
     }
-    changeQuery(value);
   };
 
   useEffect(() => {

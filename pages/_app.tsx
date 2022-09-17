@@ -4,13 +4,14 @@ import { handelRightClick } from "../utils/AppUtility";
 import type { AppProps } from "next/app";
 import { SessionProvider } from "next-auth/react";
 import ReactGA from "react-ga";
+const googleAnalyticsId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID || "";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const isProduction = process.env.APP_ENV === "production";
 
   useEffect(() => {
-    if (isProduction) {
-      ReactGA.initialize("UA-240813515-1");
+    ReactGA.initialize(googleAnalyticsId);
+    if (!isProduction) {
       ReactGA.pageview(window.location.pathname + window.location.search);
     }
   });
