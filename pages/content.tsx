@@ -143,21 +143,21 @@ const Home: NextPage = () => {
       <main className="App">
         <div className="parent background container">
           <div className="children back">
-            <div className="firefly"></div>
-            <div className="firefly"></div>
-            <div className="firefly"></div>
-            <div className="firefly"></div>
-            <div className="firefly"></div>
-            <div className="firefly"></div>
-            <div className="firefly"></div>
-            <div className="firefly"></div>
-            <div className="firefly"></div>
-            <div className="firefly"></div>
-            <div className="firefly"></div>
-            <div className="firefly"></div>
-            <div className="firefly"></div>
-            <div className="firefly"></div>
-            <div className="firefly"></div>
+            <div className="dot"></div>
+            <div className="dot"></div>
+            <div className="dot"></div>
+            <div className="dot"></div>
+            <div className="dot"></div>
+            <div className="dot"></div>
+            <div className="dot"></div>
+            <div className="dot"></div>
+            <div className="dot"></div>
+            <div className="dot"></div>
+            <div className="dot"></div>
+            <div className="dot"></div>
+            <div className="dot"></div>
+            <div className="dot"></div>
+            <div className="dot"></div>
             <Heart />
           </div>
           <div className="children front">

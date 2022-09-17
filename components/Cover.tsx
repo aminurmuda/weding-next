@@ -7,21 +7,21 @@ function Cover(props: CoverProps) {
   const isEligible = !!name;
   return (
     <div className="center fullheight">
-      <div className="firefly"></div>
-      <div className="firefly"></div>
-      <div className="firefly"></div>
-      <div className="firefly"></div>
-      <div className="firefly"></div>
-      <div className="firefly"></div>
-      <div className="firefly"></div>
-      <div className="firefly"></div>
-      <div className="firefly"></div>
-      <div className="firefly"></div>
-      <div className="firefly"></div>
-      <div className="firefly"></div>
-      <div className="firefly"></div>
-      <div className="firefly"></div>
-      <div className="firefly"></div>
+      <div className="dot"></div>
+      <div className="dot"></div>
+      <div className="dot"></div>
+      <div className="dot"></div>
+      <div className="dot"></div>
+      <div className="dot"></div>
+      <div className="dot"></div>
+      <div className="dot"></div>
+      <div className="dot"></div>
+      <div className="dot"></div>
+      <div className="dot"></div>
+      <div className="dot"></div>
+      <div className="dot"></div>
+      <div className="dot"></div>
+      <div className="dot"></div>
       <div>
         <p className="font-size-2 slide-up">The Wedding of</p>
         <div className="mt-2 mb-2 shine scale-up">Nita & Amin</div>
