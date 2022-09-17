@@ -69,28 +69,30 @@ function Adab() {
       <div>
         <p className="font-1 mb-1 scale-up">Adab Walimah</p>
       </div>
-      <div className="mt-2">
+      <div className="mt-2 left px-1">
         {list.map((item) => {
           return (
-            <div key={item.id} className="mb-2">
-              {item.iconAlt ? (
-                <div className="center">
-                  <div className="scale-up flex" style={{ width: "128px" }}>
-                    <Icon size={2} path={item.icon} />
-                    <hr
-                      style={{
-                        width: "48px",
-                        rotate: "90deg",
-                        height: "3px",
-                      }}
-                    />
-                    <Icon size={2} path={item.iconAlt} />
+            <div key={item.id} className="mb-2 flex align-top">
+              <div className="center" style={{ minWidth: "80px" }}>
+                {item.iconAlt ? (
+                  <div className="center">
+                    <div className="scale-up flex" style={{ width: "64px" }}>
+                      <Icon size={1} path={item.icon} />
+                      <hr
+                        style={{
+                          width: "24px",
+                          rotate: "90deg",
+                          height: "3px",
+                        }}
+                      />
+                      <Icon size={1} path={item.iconAlt} />
+                    </div>
                   </div>
-                </div>
-              ) : (
-                <Icon size={2} path={item.icon} className="mr-0-5 scale-up" />
-              )}
-              <p className="fade-in mt-1">{item.message}</p>
+                ) : (
+                  <Icon size={1} path={item.icon} className="mr-0-5 scale-up" />
+                )}
+              </div>
+              <p className="fade-in">{item.message}</p>
             </div>
           );
         })}

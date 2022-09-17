@@ -32,7 +32,7 @@ function Pengantin() {
                 </a> */}
 
         <p className="mt-0-5 slide-down">
-          Putri dari Bapak Diman Kadiman dan Ibu Yasinah (rahimahullah){" "}
+          Putri dari Bapak Diman Kadiman dan Ibu Yasinah (rahimahallah)
         </p>
       </div>
       <p className="font-1 font-size-3 scale-up m-0 dark-purple m-2">&amp;</p>
