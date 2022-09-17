@@ -1,3 +1,5 @@
+import ReactGA from "react-ga";
+
 function Location() {
   return (
     <div>
@@ -23,8 +25,13 @@ function Location() {
           target="_blank"
           role="button"
           rel="noreferrer"
+          onClick={() => {
+            ReactGA.event({
+              category: "Location",
+              action: "Click google maps button",
+            });
+          }}
         >
-          {" "}
           Buka di Google Maps
         </a>
       </div>

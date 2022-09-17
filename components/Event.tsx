@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import ReactGA from "react-ga";
 import Image from "next/image";
 
 const CountdownComponent = dynamic(() => import("./Countdown"), {
@@ -58,6 +59,12 @@ function Event() {
             href={url}
             rel="nofollow noreferrer"
             role="button"
+            onClick={() => {
+              ReactGA.event({
+                category: "Event",
+                action: "Click google calendar button",
+              });
+            }}
           >
             Simpan ke Google Calendar
           </a>

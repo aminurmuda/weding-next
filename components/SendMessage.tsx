@@ -1,5 +1,6 @@
 import { mdiSend } from "@mdi/js";
 import Icon from "@mdi/react";
+import ReactGA from "react-ga";
 
 interface Props {
   hide: boolean;
@@ -15,7 +16,13 @@ function SendMessage({ hide, goTo }: Props) {
     return (
       <button
         className="round-button center"
-        onClick={sendMessage}
+        onClick={() => {
+          sendMessage();
+          ReactGA.event({
+            category: "Navigation",
+            action: "Click go to wishes floating button",
+          });
+        }}
         aria-label="Send Message"
       >
         <Icon path={mdiSend} size={1} color="black" />

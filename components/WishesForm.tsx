@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Loading from "./Loading";
+import ReactGA from "react-ga";
 
 interface WishesFormProps {
   onSubmit(): void;
@@ -89,6 +90,12 @@ function WishesForm({ onSubmit }: WishesFormProps) {
             type="submit"
             className="center action-button fullwidth"
             disabled={isLoading}
+            onClick={() => {
+              ReactGA.event({
+                category: "Navigation",
+                action: "Click send wishes",
+              });
+            }}
           >
             {isLoading ? (
               <span style={{ transform: "scale(0.6)" }}>
