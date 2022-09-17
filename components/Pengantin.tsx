@@ -12,12 +12,12 @@ function Pengantin() {
         width="192"
         height="43"
       />
-      <p className="italic mt-1 slide-up">
+      <p className="italic slide-up mt-2">
         Assalamu’alaikum warahmatullahi wabarakatuh
       </p>
       <p className="mt-0-5 slide-up">
         Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta’ala, insyaa Allah
-        kami akan menyelenggarakan acara pernikahan antara:
+        kami akan melangsungkan acara akad nikah dan resepsi pernikahan antara:
       </p>
       <div className="mt-2 mx-1">
         <div>
@@ -32,7 +32,7 @@ function Pengantin() {
                 </a> */}
 
         <p className="mt-0-5 slide-down">
-          Putri dari Bapak Diman Kadiman dan Ibu Yasinah (rahimahallah)
+          Putri bungsu dari Bapak Diman Kadiman dan Ibu Yasinah (rahimahallah)
         </p>
       </div>
       <p className="font-1 font-size-3 scale-up m-0 dark-purple m-2">&amp;</p>
@@ -49,8 +49,8 @@ function Pengantin() {
                     <Icon size={0.8} path={mdiInstagram} /><span className='ml-0-5'>aminurmuda</span>
                 </a> */}
         <p className="mt-0-5 slide-down">
-          Putra dari Bapak Aris Muda Nasution (rahimahullah) dan Ibu Jean Leila
-          Hanoum{" "}
+          Putra kedua dari Bapak Aris Muda Nasution (rahimahullah) dan Ibu Jean
+          Leila Hanoum
         </p>
       </div>
     </div>

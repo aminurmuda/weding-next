@@ -23,51 +23,51 @@ function Adab() {
     {
       id: 2,
       isActive: true,
-      message: "Menggunakan masker dan tetap menjaga protokol kesehatan",
-      icon: mdiFaceMask,
-    },
-    {
-      id: 3,
-      isActive: true,
       message: "Menggunakan pakaian yang sopan & menutup aurat",
       icon: mdiHanger,
     },
     {
-      id: 4,
+      id: 3,
       isActive: true,
       message: "Mendoakan pengantin",
       icon: mdiHandsPray,
     },
     {
-      id: 5,
+      id: 4,
       isActive: true,
       message: "Memperhatikan waktu sholat",
       icon: mdiMosqueOutline,
     },
     {
-      id: 6,
+      id: 5,
       isActive: true,
       message: "Menghabiskan makanan yang sudah diambil",
       icon: mdiSilverwareForkKnife,
     },
     {
-      id: 7,
+      id: 6,
       isActive: true,
       message: "Tidak mengambil foto/video mempelai tanpa izin",
       icon: mdiCameraOffOutline,
     },
     {
-      id: 8,
+      id: 7,
       isActive: true,
       message: "Tidak merokok di area acara",
       icon: mdiSmokingOff,
+    },
+    {
+      id: 8,
+      isActive: true,
+      message: "Menggunakan masker dan tetap menjaga protokol kesehatan",
+      icon: mdiFaceMask,
     },
   ];
 
   return (
     <div>
       <div>
-        <p className="font-1 mb-1 scale-up">Adab Walimah</p>
+        <p className="font-1 mb-3 scale-up">Adab Walimah</p>
       </div>
       <div className="mt-2 left px-1">
         {list.map((item) => {

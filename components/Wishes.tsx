@@ -52,7 +52,7 @@ function Wishes() {
 
   return (
     <div>
-      <p className="font-1 mb-1 scale-up">Ucapan & Doa</p>
+      <p className="font-1 mb-3 scale-up">Ucapan & Doa</p>
       <WishesForm onSubmit={fetchData} />
       <Image
         src="/images/divider.svg"
