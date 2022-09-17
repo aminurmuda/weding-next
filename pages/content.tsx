@@ -15,6 +15,7 @@ import {
   mdiHandsPray,
 } from "@mdi/js";
 import SendMessage from "../components/SendMessage";
+import { useRouter } from "next/router";
 
 const Opening = dynamic(() => import("../components/Opening"), {
   ssr: true,
@@ -39,6 +40,7 @@ const Wishes = dynamic(() => import("../components/Wishes"), {
 });
 
 const Home: NextPage = () => {
+  const route = useRouter();
   const [currentPage, setCurrentPage] = useState("home");
   const pages = [
     {
@@ -86,6 +88,16 @@ const Home: NextPage = () => {
   ];
 
   const [page, setPage] = useState(pages[0]);
+  const changeQuery = (value: string) => {
+    route.replace(
+      {
+        pathname: "/content",
+        query: { page: value },
+      },
+      undefined,
+      { shallow: true }
+    );
+  };
 
   const handleSetCurrentPage = (value: string) => {
     setCurrentPage(value);
@@ -100,6 +112,7 @@ const Home: NextPage = () => {
         inline: "nearest",
       });
     }
+    changeQuery(value);
   };
 
   useEffect(() => {

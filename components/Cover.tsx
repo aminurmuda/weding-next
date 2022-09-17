@@ -30,7 +30,7 @@ function Cover(props: CoverProps) {
             <p className="font-size-1 slide-down">Kepada Yth.</p>
             <p className="font-size-2 mt-1 bold fade-in">{name}</p>
             <p className="font-size-1 slide-down">di Tempat</p>
-            <Link href="/content">
+            <Link href="/content?page=home">
               <button className="action-button mt-2 slide-down">
                 Buka Undangan
               </button>
