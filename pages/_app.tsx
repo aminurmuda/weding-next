@@ -7,7 +7,7 @@ import ReactGA from "react-ga";
 const googleAnalyticsId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID || "";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
-  const isProduction = process.env.APP_ENV === "production";
+  const isProduction = process.env.NEXT_PUBLIC_APP_ENV === "production";
 
   useEffect(() => {
     ReactGA.initialize(googleAnalyticsId);
