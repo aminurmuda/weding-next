@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
 
   useEffect(() => {
     ReactGA.initialize(googleAnalyticsId);
-    if (!isProduction) {
+    if (isProduction) {
       ReactGA.pageview(window.location.pathname + window.location.search);
     }
   });
