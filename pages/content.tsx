@@ -41,6 +41,8 @@ const Wishes = dynamic(() => import("../components/Wishes"), {
 
 const Home: NextPage = () => {
   const route = useRouter();
+  const queryPage =
+    route.query && route.query.page ? route.query.page.toString() : "";
   const [currentPage, setCurrentPage] = useState("home");
   const pages = [
     {
@@ -100,8 +102,10 @@ const Home: NextPage = () => {
   };
 
   const handleSetCurrentPage = (value: string) => {
-    setCurrentPage(value);
     changeQuery(value);
+    setCurrentPage(value);
+    const getPage = pages.find((item) => item.value === value);
+    getPage && setPage(getPage);
     let goTo = value;
     if (goTo === "wishes") {
       goTo = "penutup";
@@ -117,10 +121,11 @@ const Home: NextPage = () => {
   };
 
   useEffect(() => {
-    const getPage = pages.find((item) => item.value === currentPage);
-    getPage && setPage(getPage);
+    if (queryPage) {
+      handleSetCurrentPage(queryPage);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentPage]);
+  }, [queryPage]);
 
   return (
     <div>
@@ -159,14 +164,11 @@ const Home: NextPage = () => {
             <div className="center fullheight">
               <Layout page={page}>{page.content}</Layout>
             </div>
-            <SendMessage
-              hide={currentPage === "wishes"}
-              goTo={handleSetCurrentPage}
-            />
+            <SendMessage hide={currentPage === "wishes"} goTo={changeQuery} />
             <Navbar
               menus={pages}
               currentPage={currentPage}
-              setCurrentPage={handleSetCurrentPage}
+              setCurrentPage={changeQuery}
             />
           </div>
         </div>
