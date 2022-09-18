@@ -130,10 +130,10 @@ const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>Nita & Amin Wedding</title>
+        <title>{page.label} | Nita & Amin Wedding</title>
         <meta
           name="description"
-          content="E-Invitation for Nita & Amin Wedding"
+          content="E-Invitation for Nita & Amin Wedding, build with ❤ by aminurmuda"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="noindex,nofollow" />
