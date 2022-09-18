@@ -7,12 +7,17 @@ import { mdiWhatsapp } from "@mdi/js";
 
 interface Recipient {
   name: string;
-  email: string;
+  nickname: string;
+  from: string;
   phone: string;
+  is_sent: string;
+  show: string;
 }
 function Forward() {
   const [sheetData, setSheetData] = useState<Recipient[]>([]);
+  const [filteredData, setFilteredData] = useState<Recipient[]>(sheetData);
   const [isLoading, setLoading] = useState(false);
+  const [filter, setFilter] = useState("all");
 
   useEffect(() => {
     fetchData();
@@ -114,34 +119,63 @@ Nita & Amin`;
           <p>{data[2]}</p>
         </div>
         <div className="flex">
-          <div>
-            <Link
-              className="ml-1"
-              href={`https://wa.me/${phone}?text=${text}`}
-              replace
-            >
-              <button
-                className="action-button-sm"
-                aria-label="forward via whatsapp"
-              >
-                <Icon path={mdiWhatsapp} size={1} />
-              </button>
-            </Link>
-          </div>
-          <div className="ml-1 mr-1">
-            <input
-              type="checkbox"
-              defaultChecked={!!parseInt(data[3])}
-              onClick={() => {
-                handleSubmit([data[3], row]);
-              }}
-            />
-            <p>Sent</p>
-          </div>
+          {phone && (
+            <>
+              <div>
+                <Link
+                  className="ml-1"
+                  href={`https://wa.me/${phone}?text=${text}`}
+                  replace
+                >
+                  <button
+                    className="action-button-sm"
+                    aria-label="forward via whatsapp"
+                  >
+                    <Icon path={mdiWhatsapp} size={1} />
+                  </button>
+                </Link>
+              </div>
+              <div className="ml-1 mr-1">
+                <input
+                  type="checkbox"
+                  defaultChecked={!!parseInt(data[3])}
+                  onClick={() => {
+                    handleSubmit([data[3], row]);
+                  }}
+                />
+                <p>Sent</p>
+              </div>
+            </>
+          )}
         </div>
       </div>
     );
   };
+
+  function onChangeValue(event: any) {
+    setFilter(event.target.value);
+  }
+
+  const filterData = () => {
+    if (filter === "amin") {
+      const data = sheetData.filter((item: any) => {
+        return item[5].toLowerCase().includes("amin");
+      });
+      setFilteredData(data);
+    } else if (filter === "nita") {
+      const data = sheetData.filter((item: any) => {
+        return item[5].toLowerCase().includes("nita");
+      });
+      setFilteredData(data);
+    } else {
+      return setFilteredData(sheetData);
+    }
+  };
+
+  useEffect(() => {
+    filterData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filter, sheetData]);
 
   return (
     <div>
@@ -149,10 +183,42 @@ Nita & Amin`;
       <p>Untuk memudahkan dalam mengirim link undangan via Whatsapp</p>
       <Logout />
       <hr className="mt-2 mb-2 scale-up" />
+      <div className="flex mb-1" onChange={onChangeValue}>
+        <input
+          name="filter"
+          type="radio"
+          id="all"
+          value={"all"}
+          defaultChecked={filter === "all"}
+        />
+        <label htmlFor="all" className="mr-2">
+          All
+        </label>
+        <input
+          name="filter"
+          type="radio"
+          id="amin"
+          value={"amin"}
+          defaultChecked={filter === "amin"}
+        />
+        <label htmlFor="amin" className="mr-2">
+          Amin
+        </label>
+        <input
+          name="filter"
+          type="radio"
+          id="nita"
+          value={"nita"}
+          defaultChecked={filter === "nita"}
+        />
+        <label htmlFor="nita" className="mr-2">
+          Nita
+        </label>
+      </div>
       {isLoading && <Loading />}
-      {sheetData && !isLoading && (
+      {filteredData && !isLoading && (
         <div className="wishes-container">
-          {sheetData.map((item: Recipient, index: number) => {
+          {filteredData.map((item: Recipient, index: number) => {
             return (
               <div key={index}>
                 <RecipientItem data={item} row={index} />
@@ -161,7 +227,7 @@ Nita & Amin`;
           })}
         </div>
       )}
-      {!sheetData && <p>Belum ada data</p>}
+      {filteredData.length === 0 && !isLoading && <p>Belum ada data</p>}
     </div>
   );
 }

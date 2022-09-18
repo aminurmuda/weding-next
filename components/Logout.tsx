@@ -6,7 +6,10 @@ export default function Component({ children }: any) {
       {children ? (
         <span onClick={() => signOut()}>{children}</span>
       ) : (
-        <button className="action-button mt-1" onClick={() => signOut()}>
+        <button
+          className="action-button fullwidth mt-1"
+          onClick={() => signOut()}
+        >
           Sign out
         </button>
       )}

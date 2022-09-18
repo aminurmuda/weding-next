@@ -45,7 +45,7 @@ export async function getServerSideProps(context: any) {
   }
   return {
     props: {
-      user: session.user,
+      user: session ? JSON.parse(JSON.stringify(session.user)) : null,
     },
   };
 }

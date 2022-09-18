@@ -24,17 +24,21 @@ export const authOptions = {
         async signIn({ account, profile }) {
             if (account.provider === "google") {
                 const eligibleEmails = process.env.VALID_EMAILS
-                return profile.email_verified && eligibleEmails.includes(profile.email)
+                const isEligible = eligibleEmails.includes(profile.email)
+                if (profile.email_verified && isEligible) {
+                    return true
+                }
+
             }
             return true
         },
-        async jwt(token, account) {
+        async jwt({ token, account }) {
             if (account?.accessToken) {
                 token.accessToken = account.accessToken
             }
             return token;
         },
-        redirect: async () => {
+        async redirect() {
             return Promise.resolve('/forward')
         }
     }
