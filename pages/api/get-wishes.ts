@@ -1,50 +1,61 @@
 import { google } from "googleapis";
 import { NextApiRequest, NextApiResponse } from "next";
 type SheetForm = {
-    name: string
-    message: string
-}
+  name: string;
+  message: string;
+};
 
 export default async function handler(
-    req: NextApiRequest,
-    res: NextApiResponse
+  req: NextApiRequest,
+  res: NextApiResponse
 ) {
-    if (req.method != 'GET') {
-        return res.status(405).send({ message: 'Only GET allowed' })
-    }
+  if (req.method != "GET") {
+    return res.status(405).send({ message: "Only GET allowed" });
+  }
 
-    const body = req.body as SheetForm
+  const body = req.body as SheetForm;
 
-    try {
-        // prepare auth
-        const auth = new google.auth.GoogleAuth({
-            credentials: {
-                client_email: process.env.GOOGLE_SHEETS_CLIENT_EMAIL,
-                private_key: process.env.GOOGLE_SHEETS_PRIVATE_KEY?.replace(/\\n/g, '\n')
-            },
-            scopes: [
-                'https://www.googleapis.com/auth/drive',
-                'https://www.googleapis.com/auth/drive.file',
-                'https://www.googleapis.com/auth/spreadsheets',
-            ]
-        })
+  try {
+    // prepare auth
+    const auth = new google.auth.GoogleAuth({
+      credentials: {
+        client_email: process.env.GOOGLE_SHEETS_CLIENT_EMAIL,
+        private_key: process.env.GOOGLE_SHEETS_PRIVATE_KEY?.replace(
+          /\\n/g,
+          "\n"
+        ),
+      },
+      scopes: [
+        "https://www.googleapis.com/auth/drive",
+        "https://www.googleapis.com/auth/drive.file",
+        "https://www.googleapis.com/auth/spreadsheets",
+      ],
+    });
 
-        const sheets = google.sheets({
-            auth,
-            version: 'v4'
-        })
+    const sheets = google.sheets({
+      auth,
+      version: "v4",
+    });
 
-        const response = await sheets.spreadsheets.values.get({
-            spreadsheetId: process.env.SPREADSHEET_ID,
-            range: 'wishes!A2:D'
-        })
+    const response = await sheets.spreadsheets.values.get({
+      spreadsheetId: process.env.SPREADSHEET_ID,
+      range: "wishes!A2:E",
+    });
 
-        const filteredResponse = response.data.values?.filter(item => {return parseInt(item[3])})
+    const filteredResponse = response.data.values?.filter((item) => {
+      return parseInt(item[4]);
+    });
+    const mappedResponse = filteredResponse?.map((item) => {
+      const [name, message, timestamp, rsvp, show] = item;
+      return [name, message, timestamp];
+    });
 
-        return res.status(200).json({
-            data: filteredResponse?.reverse()
-        })
-    } catch (e: any) {
-        return res.status(500).send({ message: e.message ?? 'Something went wrong' })
-    }
+    return res.status(200).json({
+      data: mappedResponse?.reverse(),
+    });
+  } catch (e: any) {
+    return res
+      .status(500)
+      .send({ message: e.message ?? "Something went wrong" });
+  }
 }

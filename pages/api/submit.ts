@@ -46,7 +46,7 @@ export default async function handler(
       valueInputOption: "USER_ENTERED",
       requestBody: {
         values: [
-          [body.name, body.message, body.currentTimestamp, 1, body.rsvp],
+          [body.name, body.message, body.currentTimestamp, body.rsvp, 1],
         ],
       },
     });

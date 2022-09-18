@@ -32,7 +32,9 @@ function WishesForm({ onSubmit }: WishesFormProps) {
         body: JSON.stringify(form),
       });
 
-      const content = await response.json();
+      await response.json();
+
+      event.target.message.value = "";
       onSubmit();
       setLoading(false);
     }
