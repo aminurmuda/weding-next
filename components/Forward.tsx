@@ -17,6 +17,7 @@ function Forward() {
   const [sheetData, setSheetData] = useState<Recipient[]>([]);
   const [filteredData, setFilteredData] = useState<Recipient[]>(sheetData);
   const [isLoading, setLoading] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [filter, setFilter] = useState("all");
 
   useEffect(() => {
@@ -25,7 +26,8 @@ function Forward() {
   }, []);
 
   const handleSubmit = async (data: any) => {
-    if (!isLoading) {
+    if (!isSubmitting) {
+      setIsSubmitting(true);
       // Get data from the form.
       const form = {
         check: parseInt(data[0]) ? 0 : 1,
@@ -41,7 +43,8 @@ function Forward() {
         body: JSON.stringify(form),
       });
 
-      const content = await response.json();
+      await response.json();
+      setIsSubmitting(false);
       fetchData();
     }
   };
@@ -137,13 +140,17 @@ Nita & Amin`;
               </div>
               <div className="ml-1 mr-1">
                 <input
+                  id={"check-" + row}
                   type="checkbox"
                   defaultChecked={!!parseInt(data[3])}
                   onClick={() => {
                     handleSubmit([data[3], row]);
                   }}
+                  disabled={!!isSubmitting}
                 />
-                <p>Sent</p>
+                <div>
+                  <label htmlFor={"check-" + row}>Sent</label>
+                </div>
               </div>
             </>
           )}
