@@ -40,7 +40,7 @@ export default async function handler(
 
     const response = await sheets.spreadsheets.values.update({
       spreadsheetId: process.env.SPREADSHEET_ID,
-      range: `recipients!D${body.row + 2}:D`,
+      range: `recipients!D${body.row}:D`,
       valueInputOption: "USER_ENTERED",
       requestBody: {
         values: [[body.check]],

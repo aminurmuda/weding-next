@@ -218,10 +218,10 @@ Nita & Amin`;
       {isLoading && <Loading />}
       {filteredData && !isLoading && (
         <div className="wishes-container">
-          {filteredData.map((item: Recipient, index: number) => {
+          {filteredData.map((item: any) => {
             return (
-              <div key={index}>
-                <RecipientItem data={item} row={index} />
+              <div key={item[6]}>
+                <RecipientItem data={item} row={item[6]} />
               </div>
             );
           })}

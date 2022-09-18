@@ -39,7 +39,7 @@ export default async function handler(
 
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: process.env.SPREADSHEET_ID,
-      range: "recipients!A2:F",
+      range: "recipients!A2:G",
     });
     const filteredResponse = response.data.values?.filter((item) => {
       return parseInt(item[4]);
