@@ -64,7 +64,9 @@ function Forward() {
     link: string;
   }
   const buildMessage = ({ fullname, nickname, link }: RecipientData) => {
-    const text = `_Assalamu'alaikum warahmatullahi wabarakatuh_
+    const text = `
+Bismillaahirrahmaanirrahiim
+_Assalamu'alaikum warahmatullahi wabarakatuh_
 
 Kepada Yth.
 ${fullname}
