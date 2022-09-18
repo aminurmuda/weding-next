@@ -39,11 +39,14 @@ export default async function handler(
 
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: process.env.SPREADSHEET_ID,
-      range: "recipients!A2:D",
+      range: "recipients!A2:E",
+    });
+    const filteredResponse = response.data.values?.filter((item) => {
+      return parseInt(item[4]);
     });
 
     return res.status(200).json({
-      data: response.data.values,
+      data: filteredResponse,
     });
   } catch (e: any) {
     return res
