@@ -61,7 +61,7 @@ function Wishes() {
         width="600"
         height="80"
       />
-      <div style={{ minHeight: "48px" }}>
+      <div className="center" style={{ minHeight: "64px" }}>
         {isLoading && <Loading />}
         {sheetData && !isLoading && (
           <div className="wishes-container">
@@ -74,7 +74,9 @@ function Wishes() {
             })}
           </div>
         )}
-        {!sheetData && !isLoading && <p>Belum ada data</p>}
+        {(!sheetData || sheetData.length === 0) && !isLoading && (
+          <p>Belum ada data</p>
+        )}
       </div>
     </div>
   );
