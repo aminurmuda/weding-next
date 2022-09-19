@@ -3,7 +3,11 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import Loading from "./Loading";
 import Logout from "./Logout";
-import { mdiWhatsapp } from "@mdi/js";
+import {
+  mdiWhatsapp,
+  mdiCheckCircle,
+  mdiCheckboxBlankCircleOutline,
+} from "@mdi/js";
 
 interface Recipient {
   name: string;
@@ -25,7 +29,7 @@ function Forward() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleSubmit = async (data: any) => {
+  const handleTick = async (data: any) => {
     if (!isSubmitting) {
       setIsSubmitting(true);
       // Get data from the form.
@@ -139,15 +143,24 @@ Nita & Amin`;
                 </Link>
               </div>
               <div className="ml-1 mr-1">
-                <input
+                <button
+                  className={"check"}
                   id={"check-" + row}
-                  type="checkbox"
-                  defaultChecked={!!parseInt(data[3])}
+                  aria-label="check"
                   onClick={() => {
-                    handleSubmit([data[3], row]);
+                    handleTick([data[3], row]);
                   }}
-                  disabled={!!isSubmitting}
-                />
+                >
+                  <Icon
+                    className={!!parseInt(data[3]) ? "is-active" : ""}
+                    path={
+                      !!parseInt(data[3])
+                        ? mdiCheckCircle
+                        : mdiCheckboxBlankCircleOutline
+                    }
+                    size={0.8}
+                  />
+                </button>
                 <div>
                   <label htmlFor={"check-" + row}>Sent</label>
                 </div>
