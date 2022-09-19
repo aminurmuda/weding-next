@@ -39,6 +39,8 @@ export default async function handler(
       auth,
       version: "v4",
     });
+    let currentTimestamp = new Date();
+    currentTimestamp.setHours(currentTimestamp.getHours() - 7);
 
     const response = await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.SPREADSHEET_ID,
@@ -46,7 +48,13 @@ export default async function handler(
       valueInputOption: "USER_ENTERED",
       requestBody: {
         values: [
-          [body.name, body.message, body.currentTimestamp, body.rsvp, 1],
+          [
+            body.name,
+            body.message,
+            currentTimestamp.toLocaleString(),
+            body.rsvp,
+            1,
+          ],
         ],
       },
     });

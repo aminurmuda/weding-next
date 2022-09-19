@@ -37,8 +37,12 @@ function Wishes() {
 
   const WishItem = (props: any) => {
     const { data } = props;
-    const targetDate = new Date(data[2]).getTime();
-    const timestamp = useTime(targetDate);
+    const targetDate = new Date(data[2]);
+    // if (targetDate.toLocaleString() === "Invalid Date") {
+    //   // console.log(data[2] + " " + targetDate);
+    // }
+    const getTime = targetDate.getTime();
+    const timestamp = useTime(getTime);
     return (
       <div className="wish fade-in">
         <div className="flex space-between mb-2">
