@@ -40,7 +40,7 @@ export default async function handler(
       version: "v4",
     });
     let currentTimestamp = new Date();
-    currentTimestamp.setHours(currentTimestamp.getHours() - 7);
+    currentTimestamp.setHours(currentTimestamp.getHours() + 7);
 
     const response = await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.SPREADSHEET_ID,
