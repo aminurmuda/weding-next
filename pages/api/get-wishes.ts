@@ -46,7 +46,7 @@ export default async function handler(
       return parseInt(item[4]);
     });
     const mappedResponse = filteredResponse?.map((item) => {
-      const [name, message, timestamp, rsvp, show] = item;
+      const [name, message, timestamp] = item;
       return [name, message, timestamp];
     });
 
