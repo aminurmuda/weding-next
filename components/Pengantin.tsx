@@ -36,7 +36,6 @@ function Pengantin() {
         </p>
       </div>
       <p className="font-1 font-size-3 scale-up m-0 dark-purple m-2">&amp;</p>
-      {/* <Heart /> */}
       <div className="mb-1 mx-1">
         <div>
           {/* <img className="avatar" src="https://invetin.id/wp-content/uploads/2020/12/muslim-08-thumb.png" alt="ikhwan" /> */}
