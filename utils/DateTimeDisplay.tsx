@@ -3,10 +3,10 @@ interface DateTimeDisplayProps {
   value: number;
   type: string;
   isDanger: boolean;
-  shouldFlash: boolean;
+  shouldFlash?: boolean;
 }
 const DateTimeDisplay = (props: DateTimeDisplayProps) => {
-  const { value, type, isDanger, shouldFlash } = props;
+  const { value, type, isDanger, shouldFlash = false} = props;
   const styles = [];
   if (shouldFlash) {
     styles.push("flash");

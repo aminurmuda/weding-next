@@ -62,7 +62,7 @@ const Countdown = (props: CountdownProps) => {
   const [days, hours, minutes, seconds] = useCountdown(targetDate);
   const shouldFlash = () => {
     return (
-      days <= 0 && hours <= 0 && minutes <= 0 && seconds <= 60 && seconds > 0
+      days <= 0 && hours <= 0 && minutes <= 0 && seconds <= 10 && seconds > 0
     );
   };
   const isDanger = () => {
