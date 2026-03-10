@@ -1,34 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Nita & Amin Online Wedding Invitation
 
-## Getting Started
+**Online Wedding Invitation Website**
 
-First, run the development server:
+<img width="455" height="812" alt="image" src="https://github.com/user-attachments/assets/38f4e637-5a8e-4020-8df1-63827c6a9117" />
 
-```bash
-npm run dev
-# or
-yarn dev
+
+[View Live Invitation](https://nita-amin-wedding.netlify.app/?to=Guest)
+
+This project is an **online wedding invitation** for Nita & Amin. It allows invited guests to view the invitation, RSVP, and access wedding details digitally. The website is designed to be elegant, responsive, and interactive for a seamless guest experience.
+
+## Features
+
+- **Interactive Invitation** – Guests can view event details and personalized messages.
+- **RSVP Form** – Guests can confirm attendance online.
+- **Responsive Design** – Works beautifully on desktop, tablet, and mobile devices.
+- **Animations & Smooth UI** – Engaging and visually appealing transitions.
+- **Accessible & Modern** – Built with modern web standards for accessibility.
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org/) – React framework for server-side rendering and routing.
+- [React](https://reactjs.org/) – Frontend library for building UI components.
+- Deployed on [Netlify](https://www.netlify.com/) – Hosting platform for frontend apps.
+
+## How to Run Locally
+
+1. Clone the repository:
+
+```
+bash
+git clone https://github.com/aminurmuda/weding-next.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```
+cd wedding-next
+npm install
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+3. Run the development server:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+npm run dev
+```
